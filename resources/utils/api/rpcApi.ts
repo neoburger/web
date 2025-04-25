@@ -174,10 +174,10 @@ const getQuote = () => {
   //     });
   return Promise.all([
     invokeScript(constants.NEOPRICE).then(
-      (res) => res.stack[0].value[1].value / 10 ** 6
+      (res) => res.stack[0].value[1].value / 10 ** 8
     ),
     invokeScript(constants.GASPRICE).then(
-      (res) => res.stack[0].value[2].value / 10 ** 6
+      (res) => res.stack[0].value[1].value / 10 ** 8
     ),
   ]).catch(() => {
     console.log("Failed to get the unit price of the asset");
